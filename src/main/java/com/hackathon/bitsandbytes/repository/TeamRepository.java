@@ -11,5 +11,6 @@ import com.hackathon.bitsandbytes.entity.Team;
 @Repository
 @Transactional
 public interface TeamRepository extends JpaRepository<Team,Long> {
-
+	
+	public Team findTeamByName(String name);
 }

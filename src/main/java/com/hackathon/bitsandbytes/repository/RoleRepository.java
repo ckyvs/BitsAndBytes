@@ -10,5 +10,6 @@ import com.hackathon.bitsandbytes.entity.Role;
 @Repository
 @Transactional
 public interface RoleRepository extends JpaRepository<Role,Long>{
-
+	
+	public Role findRoleByName(String name);
 }
