@@ -8,10 +8,10 @@ insert into role values(2, "SDE-1");
 insert into role values(3, "SDE-2");
 insert into role values(4, "SDE-3");
 insert into role values(5, "Manager");
-insert into role values(5, "Senior Manager");
-insert into role values(5, "Director");
+insert into role values(6, "Senior Manager");
+insert into role values(7, "Director");
 
-insert into domain values(1, "Documentum");
-insert into domain values(2, "Archive Server");
-insert into domain values(3, "Info Archive");
-insert into domain values(4, "ECM");
+insert into team values(1, "Documentum");
+insert into team values(2, "Archive Server");
+insert into team values(3, "Info Archive");
+insert into team values(4, "ECM");
