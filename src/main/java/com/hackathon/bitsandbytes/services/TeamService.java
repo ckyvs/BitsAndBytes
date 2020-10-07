@@ -9,6 +9,8 @@ import com.hackathon.bitsandbytes.repository.TeamRepository;
 public class TeamService {
 	
 	@Autowired
-	TeamRepository teamrepository;
-
+	TeamRepository teamRepository;
+	
+	
+	
 }

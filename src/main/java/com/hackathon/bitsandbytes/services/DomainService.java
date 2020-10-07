@@ -9,7 +9,7 @@ import com.hackathon.bitsandbytes.repository.DomainRepository;
 public class DomainService {
 	
 	@Autowired
-	DomainRepository domainrepository;
+	DomainRepository domainRepository;
 	
 	
 }

@@ -9,6 +9,6 @@ import com.hackathon.bitsandbytes.repository.RoleRepository;
 public class RoleService {
 	
 	@Autowired
-	RoleRepository rolerepository;
+	RoleRepository roleRepository;
 	
 }

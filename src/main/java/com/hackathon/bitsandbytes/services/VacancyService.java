@@ -9,7 +9,7 @@ import com.hackathon.bitsandbytes.repository.VacancyRepository;
 public class VacancyService {
 
 	@Autowired
-	VacancyRepository vacancyrepoitory;
+	VacancyRepository vacancyRepository;
 	
 	
 	
