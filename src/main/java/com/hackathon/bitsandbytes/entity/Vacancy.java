@@ -16,6 +16,8 @@ public class Vacancy {
 	private Team team;
 	@ManyToOne
 	private Role role;
+	private String status;
+	
 	public Long getId() {
 		return id;
 	}
@@ -40,5 +42,11 @@ public class Vacancy {
 	public void setRole(Role role) {
 		this.role = role;
 	}
-
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
 }
