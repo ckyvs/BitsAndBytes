@@ -10,6 +10,7 @@ public class Role {
 	@GeneratedValue
 	private Long id;
 	private String name;
+	private int experience;
 
 	public Long getId() {
 		return id;
@@ -25,6 +26,14 @@ public class Role {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public int getExperience() {
+		return experience;
+	}
+
+	public void setExperience(int experience) {
+		this.experience = experience;
 	}
 	
 	
