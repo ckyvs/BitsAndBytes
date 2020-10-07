@@ -31,7 +31,7 @@ public class VacancyController {
 	}
 	
 	@PostMapping("/vacancy")
-	public ResponseEntity<Object> createEmployee(@RequestBody Vacancy vacancy) {
+	public ResponseEntity<Object> createVacancy(@RequestBody Vacancy vacancy) {
 		Vacancy savedvacancy = vacancyService.addVacancy(vacancy);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("{id}").buildAndExpand(savedvacancy.getId())
 				.toUri();
@@ -39,10 +39,10 @@ public class VacancyController {
 	}
 	
 	@PutMapping("/vacancy/{id}")
-	public ResponseEntity<Object> updateStudent(@RequestBody Vacancy vacancy, @PathVariable long id) {
+	public ResponseEntity<Object> updateVacancy(@RequestBody String vacancyStatus, @PathVariable long id) {
 
 		
-		vacancyService.updateVacancyDetails(vacancy);
+		vacancyService.updateVacancyDetails(vacancyStatus,id);
 
 		return ResponseEntity.noContent().build();
 	}
