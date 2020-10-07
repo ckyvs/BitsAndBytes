@@ -10,5 +10,5 @@ import com.hackathon.bitsandbytes.entity.Domain;
 @Repository
 @Transactional
 public interface DomainRepository extends JpaRepository<Domain,Long>{
-
+	public Domain findDomainByName(String name);
 }

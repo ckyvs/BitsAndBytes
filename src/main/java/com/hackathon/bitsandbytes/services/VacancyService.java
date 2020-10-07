@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hackathon.bitsandbytes.entity.Vacancy;
+import com.hackathon.bitsandbytes.entity.projections.VacancyProjection;
+import com.hackathon.bitsandbytes.repository.DomainRepository;
+import com.hackathon.bitsandbytes.repository.RoleRepository;
+import com.hackathon.bitsandbytes.repository.TeamRepository;
 import com.hackathon.bitsandbytes.repository.VacancyRepository;
 
 @Service
@@ -15,8 +19,15 @@ public class VacancyService {
 	@Autowired
 	VacancyRepository vacancyRepository;
 	
+	@Autowired
+	DomainRepository domainRepository;
 	
-	 List<Vacancy> listOfVacancies = new ArrayList<Vacancy>();
+	@Autowired
+	RoleRepository roleRepository;
+	
+	@Autowired
+	TeamRepository teamRepository;
+	
 	
 	 
 	public List<Vacancy> getAllVacancies(){
@@ -24,23 +35,24 @@ public class VacancyService {
 		return receivedAllVacancies;
 	}
 	 
-	 
-	//Adding a single vacancy.
-	public Vacancy addVacancy(Vacancy vacancy) {
-		Vacancy savedvacancy = vacancyRepository.save(vacancy);
-		return savedvacancy;
+	public Vacancy addVacancy(VacancyProjection vacancyProjection) {
+		Vacancy vacancy = new Vacancy();
+		vacancy.setDomain(domainRepository.findDomainByName(vacancyProjection.getDomain()));
+		vacancy.setRole(roleRepository.findRoleByName(vacancyProjection.getRole()));
+		vacancy.setTeam(teamRepository.findTeamByName(vacancyProjection.getTeam()));
+		vacancy.setStatus("Open");
+		return vacancyRepository.save(vacancy);
 	}
 	
-	//Adding multiple vacancies at a time;
 	public List<Vacancy> addMultipleVacancies(List<Vacancy> vacancies) {
 		List<Vacancy> savedVacancies = (List<Vacancy>) vacancyRepository.saveAll(vacancies);
 		return savedVacancies;
 	}
 	
-	//Update the vacancy in the repository
-	public Vacancy updateVacancyDetails(Vacancy updateVacancyDetails) {
-		Vacancy updatedVacancy = vacancyRepository.save(updateVacancyDetails);
-		return updatedVacancy;
+	public Vacancy updateVacancyDetails(String vacancyStatus, Long id) {
+		Vacancy vacancy = vacancyRepository.getOne(id);
+		vacancy.setStatus(vacancyStatus);
+		return vacancyRepository.saveAndFlush(vacancy);
 	}
 	
 }
