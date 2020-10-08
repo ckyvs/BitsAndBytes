@@ -3,13 +3,13 @@ insert into domain values(2, "Marketing");
 insert into domain values(3, "Sales");
 insert into domain values(4, "HR");
 
-insert into role values(1, "Intern");
-insert into role values(2, "SDE-1");
-insert into role values(3, "SDE-2");
-insert into role values(4, "SDE-3");
-insert into role values(5, "Manager");
-insert into role values(6, "Senior Manager");
-insert into role values(7, "Director");
+insert into role(id, name, experience) values(1, "Intern", 0);
+insert into role(id, name, experience) values(2, "SDE-1", 2);
+insert into role(id, name, experience) values(3, "SDE-2", 3);
+insert into role(id, name, experience) values(4, "SDE-3", 5);
+insert into role(id, name, experience) values(5, "Manager", 6);
+insert into role(id, name, experience) values(6, "Senior Manager", 10);
+insert into role(id, name, experience) values(7, "Director", 15);
 
 insert into team values(1, "Documentum");
 insert into team values(2, "Archive Server");

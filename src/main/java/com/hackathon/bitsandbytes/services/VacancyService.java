@@ -40,7 +40,7 @@ public class VacancyService {
 		vacancy.setRole(roleRepository.findRoleByName(vacancyProjection.getRole()));
 		vacancy.setTeam(teamRepository.findTeamByName(vacancyProjection.getTeam()));
 		vacancy.setStatus("Open");
-		return vacancyRepository.save(vacancy);
+		return vacancyRepository.saveAndFlush(vacancy);
 	}
 	
 	public List<Vacancy> addMultipleVacancies(List<Vacancy> vacancies) {

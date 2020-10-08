@@ -12,6 +12,18 @@ public class Role {
 	private String name;
 	private int experience;
 
+	
+	public Role() {
+		super();
+	}
+
+	public Role(Long id, String name, int experience) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.experience = experience;
+	}
+
 	public Long getId() {
 		return id;
 	}

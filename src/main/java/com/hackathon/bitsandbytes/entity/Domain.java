@@ -11,6 +11,17 @@ public class Domain {
 	private Long id;
 	private String name;
 
+	
+	public Domain() {
+		super();
+	}
+
+	public Domain(Long id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -26,7 +37,5 @@ public class Domain {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
 
 }

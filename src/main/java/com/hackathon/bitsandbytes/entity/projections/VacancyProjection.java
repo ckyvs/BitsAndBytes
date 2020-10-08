@@ -11,16 +11,26 @@ public class VacancyProjection {
 	private String team;
 	private String role;
 	private String status;
-	public VacancyProjection(Long id, Domain domain, Team team, Role role, String status) {
-		super();
-		this.id = id;
-		this.domain = domain.getName();
-		this.team = team.getName();
-		this.role = role.getName();
-		this.status = status;
-	}
+//	public VacancyProjection(Long id, Domain domain, Team team, Role role, String status) {
+//		super();
+//		this.id = id;
+//		this.domain = domain.getName();
+//		this.team = team.getName();
+//		this.role = role.getName();
+//		this.status = status;
+//	}
+	
+
 	public Long getId() {
 		return id;
+	}
+	public VacancyProjection(Long id, String domain, String team, String role, String status) {
+		super();
+		this.id = id;
+		this.domain = domain;
+		this.team = team;
+		this.role = role;
+		this.status = status;
 	}
 	public void setId(Long id) {
 		this.id = id;
