@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.hackathon.bitsandbytes.entity.Vacancy;
 import com.hackathon.bitsandbytes.entity.projections.VacancyProjection;
+import com.hackathon.bitsandbytes.entity.projections.VacancyProjectionClient;
 import com.hackathon.bitsandbytes.repository.DomainRepository;
 import com.hackathon.bitsandbytes.repository.RoleRepository;
 import com.hackathon.bitsandbytes.repository.TeamRepository;
@@ -29,12 +30,11 @@ public class VacancyService {
 	
 	
 	 
-	public List<Vacancy> getAllVacancies(){
-		List<Vacancy> receivedAllVacancies = vacancyRepository.findAll();
-		return receivedAllVacancies;
+	public List<VacancyProjection> getAllVacancies(){
+		return vacancyRepository.findAllProjectedBy();
 	}
 	 
-	public Vacancy addVacancy(VacancyProjection vacancyProjection) {
+	public Vacancy addVacancy(VacancyProjectionClient vacancyProjection) {
 		Vacancy vacancy = new Vacancy();
 		vacancy.setDomain(domainRepository.findDomainByName(vacancyProjection.getDomain()));
 		vacancy.setRole(roleRepository.findRoleByName(vacancyProjection.getRole()));

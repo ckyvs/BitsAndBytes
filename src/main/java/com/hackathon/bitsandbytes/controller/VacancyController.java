@@ -16,6 +16,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.hackathon.bitsandbytes.entity.Vacancy;
 import com.hackathon.bitsandbytes.entity.projections.VacancyProjection;
+import com.hackathon.bitsandbytes.entity.projections.VacancyProjectionClient;
 import com.hackathon.bitsandbytes.services.VacancyService;
 
 @RestController
@@ -26,12 +27,12 @@ public class VacancyController {
 	VacancyService vacancyService;
 
 	@GetMapping("/api/vacancies")
-	public List<Vacancy> getAllVacancies() {
+	public List<VacancyProjection> getAllVacancies() {
 		return vacancyService.getAllVacancies();
 	}
 
 	@PostMapping("/api/vacancy")
-	public ResponseEntity<Object> createVacancy(@RequestBody VacancyProjection vacancy) {
+	public ResponseEntity<Object> createVacancy(@RequestBody VacancyProjectionClient vacancy) {
 		Vacancy savedvacancy = vacancyService.addVacancy(vacancy);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("{id}")
 				.buildAndExpand(savedvacancy.getId()).toUri();
