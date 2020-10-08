@@ -53,5 +53,9 @@ public class VacancyService {
 		vacancy.setStatus(vacancyStatus);
 		return vacancyRepository.saveAndFlush(vacancy);
 	}
+
+	public VacancyProjection getVacancy(Long id) {
+		return vacancyRepository.findOneProjectedById(id);
+	}
 	
 }

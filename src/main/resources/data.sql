@@ -15,3 +15,8 @@ insert into team values(1, "Documentum");
 insert into team values(2, "Archive Server");
 insert into team values(3, "Info Archive");
 insert into team values(4, "ECM");
+
+insert into vacancy(id, domain_id, team_id, role_id, status) values(10000, 1, 1, 2, 'Open');
+insert into vacancy(id, domain_id, team_id, role_id, status) values(20000, 1, 2, 5, 'Open');
+insert into vacancy(id, domain_id, team_id, role_id, status) values(30000, 4, 4, 7, 'Open');
+insert into vacancy(id, domain_id, team_id, role_id, status) values(40000, 2, 2, 5, 'Open');

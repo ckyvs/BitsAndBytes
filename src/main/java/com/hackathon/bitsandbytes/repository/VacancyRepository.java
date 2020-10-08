@@ -17,4 +17,6 @@ import com.hackathon.bitsandbytes.entity.projections.VacancyProjection;
 public interface VacancyRepository extends JpaRepository<Vacancy,Long> {
 
 	public List<VacancyProjection> findAllProjectedBy();
+	
+	public VacancyProjection findOneProjectedById(Long id);
 }

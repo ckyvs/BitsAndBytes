@@ -30,8 +30,13 @@ public class VacancyController {
 	public List<VacancyProjection> getAllVacancies() {
 		return vacancyService.getAllVacancies();
 	}
+	
+	@GetMapping("/api/vacancies/{id}")
+	public VacancyProjection getOneVacancy(@PathVariable Long id) {
+		return vacancyService.getVacancy(id);
+	}
 
-	@PostMapping("/api/vacancy")
+	@PostMapping("/api/vacancies")
 	public ResponseEntity<Object> createVacancy(@RequestBody VacancyProjectionClient vacancy) {
 		Vacancy savedvacancy = vacancyService.addVacancy(vacancy);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("{id}")
@@ -39,7 +44,7 @@ public class VacancyController {
 		return ResponseEntity.created(location).build();
 	}
 
-	@PutMapping("/api/vacancy/{id}")
+	@PutMapping("/api/vacancies/{id}")
 	public ResponseEntity<Object> updateVacancy(@RequestBody String vacancyStatus, @PathVariable long id) {
 
 		vacancyService.updateVacancyDetails(vacancyStatus, id);
